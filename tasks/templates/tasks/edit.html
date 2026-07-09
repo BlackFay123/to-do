@@ -10,12 +10,12 @@
 
     <h1>To Do App <i class="fa-solid fa-clipboard-list"></i></h1>
 
-    <form method="POST" action="{% url 'tasks:add' %}">
-        <h2><i class="fa-solid fa-list"></i> Add a Task</h2>
+    <form method="POST" action="{% url 'tasks:edit' %}">
+        <h2><i class="fa-solid fa-rotate"></i>Edit a Task</h2>
         {% csrf_token %}
         {{ form }}
 
-        <button type="submit"><i class="fa-solid fa-plus"></i>Add Task</button>
+        <button type="submit"><i class="fa-solid fa-rotate"></i>Edit Task</button>
         <a href="{% url 'tasks:index' %}" id="exit-btn"><i class="fa-solid fa-arrow-right-from-bracket"></i>Exit</a>
     </form>
 

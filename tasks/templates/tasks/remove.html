@@ -15,7 +15,8 @@
         {% csrf_token %}
         {{ form }}
 
-        <button type="submit">Submit</button>
+        <button type="submit"><i class="fa-solid fa-circle-xmark"></i>Remove Task</button>
+        <a href="{% url 'tasks:index' %}" id="exit-btn"><i class="fa-solid fa-arrow-right-from-bracket"></i>Exit</a>
     </form>
 
 </div>

@@ -20,8 +20,7 @@ def add(request):
 
             if form["priority"].capitalize() not in ["Low", "Medium", "High"]:
                return render(request, "tasks/add.html", 
-                    {"tasks": request.session["tasks"], 
-                     "form": forms.AddTaskForm(), 
+                    {"form": forms.AddTaskForm(), 
                      "error": f'Error: "{form["priority"]}" is not a valid priority.',
                     })
             
@@ -44,8 +43,7 @@ def add(request):
             
             else:
                return render(request, "tasks/add.html", 
-                    {"tasks": request.session["tasks"], 
-                     "form": forms.AddTaskForm(), 
+                    {"form": forms.AddTaskForm(), 
                      "error": f'Error: Task "{form["name"].capitalize()}" already exists.',
                     })
     
@@ -79,13 +77,48 @@ def remove(request):
 
             else:
                return render(request, "tasks/remove.html", 
-                    {"tasks": request.session["tasks"], 
-                     "form": forms.RemoveTaskForm(), 
+                    {"form": forms.RemoveTaskForm(), 
                      "error": f'Error: Task "{form["name"].capitalize()}" does not exist.',
                     })
 
     if request.session["tasks"]:           
         return render(request, "tasks/remove.html", {"form": forms.RemoveTaskForm()})
+    
+    else:
+        return HttpResponseRedirect(reverse("tasks:index"))
+    
+def edit(request):
+    if "tasks" not in request.session:
+        request.session["tasks"] = []
+
+    if request.method == "POST":
+        form = forms.EditTaskForm(request.POST)
+
+        if form.is_valid():
+            form = form.cleaned_data
+
+            if form["priority"].capitalize() not in ["Low", "Medium", "High"]:
+               return render(request, "tasks/edit.html", 
+                    {"form": forms.EditTaskForm(), 
+                     "error": f'Error: "{form["priority"]}" is not a valid priority.',
+                    })
+            
+            if form["id"] > len(request.session["tasks"]):
+                return render(request, "tasks/edit.html", 
+                    {"form": forms.EditTaskForm(), 
+                     "error": f'Error: Task Number should be a number less than or equal to "{len(request.session["tasks"])}".',
+                    })
+            
+            id = form["id"] - 1
+            request.session["tasks"][id]["name"] = form["name"].capitalize()
+            request.session["tasks"][id]["description"] = form["description"].capitalize()
+            request.session["tasks"][id]["priority"] = form["priority"].capitalize()
+            request.session.modified = True
+
+            return HttpResponseRedirect(reverse("tasks:index"))               
+
+    if request.session["tasks"]:           
+        return render(request, "tasks/edit.html", {"form": forms.EditTaskForm()})
     
     else:
         return HttpResponseRedirect(reverse("tasks:index"))

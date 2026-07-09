@@ -117,7 +117,7 @@ body{
     color: rgb(190, 167, 139);
 }
 
-#container form input:focus, button:focus{
+#container form input:focus, button:focus, #exit-btn:focus{
     outline: 2px solid rgb(131, 72, 0);
     transform: scale(1.02, 1.02);
 }
@@ -132,7 +132,7 @@ a:focus{
     color: rgb(131, 72, 0);
 }
 
-#container form button, a button{
+#container form button, a button, #exit-btn{
     width: 100%;
     padding: 10px;
     border: 0;
@@ -145,7 +145,7 @@ a:focus{
     margin-top: 10px;
 }
 
-#container form button:hover, a button:hover{
+#container form button:hover, a button:hover, #exit-btn:hover{
     outline: 2px solid rgb(131, 72, 0);
     transform: scale(1.02, 1.02);
     cursor: pointer;
@@ -156,4 +156,12 @@ a:focus{
     font-size: 20px;
     width: 100%;
     margin-top: 20px;
+}
+
+#exit-btn{
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 30px;
+    width: 50%;
 }
