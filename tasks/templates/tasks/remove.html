@@ -1,0 +1,23 @@
+{% extends "tasks/layout.html" %}
+
+{% block body %}
+
+{% if error %}
+    <div id="error">{{ error }}</div>
+{% endif %}
+
+<div id="container">
+
+    <h1>To Do App <i class="fa-solid fa-clipboard-list"></i></h1>
+
+    <form method="POST" action="{% url 'tasks:remove' %}">
+        <h2><i class="fa-solid fa-xmark"></i>Remove a Task</h2>
+        {% csrf_token %}
+        {{ form }}
+
+        <button type="submit">Submit</button>
+    </form>
+
+</div>
+
+{% endblock %}

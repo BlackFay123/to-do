@@ -1,0 +1,159 @@
+body{
+    background-color: bisque;
+    font-family: Poppins, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#error{
+    background-color: rgb(131, 72, 0);
+    width: 90%;
+    padding: 20px;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px; 
+    margin-bottom: 50px;
+    overflow-wrap: break-word;
+}
+
+#container{
+    background-color: white;
+    box-shadow: 0px 10px 6px 3px rgb(250, 221, 186);
+    width: 75%;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
+    border-radius: 50px;
+}
+
+#container h1{
+    text-align: center;
+    margin-top: 0;
+}
+
+#container ul{
+    margin-bottom: 0;
+    padding: 0;
+}
+
+#container ul li{
+    background-color: bisque;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 20px;
+    color: rgb(131, 72, 0);
+    list-style: none;
+}
+
+#container ul li .priority{
+    background-color: white;
+    font-size: 15px;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 20px;
+    display: inline;
+    margin: 0;
+    float: right;
+}
+
+#container ul li .high-priority{
+    background-color: brown;
+    color: white;
+}
+
+#container ul li .medium-priority{
+    background-color: rgb(98, 0, 255);
+    color: white;
+}
+
+#container ul li .low-priority{
+    background-color: rgb(52, 200, 52);
+    color: white;
+}
+
+#container ul li h2{
+    margin: 0;   
+}
+
+#container ul li p{
+    margin-top: 10px;
+}
+
+#container form{
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: bisque; 
+    padding: 30px;
+    border-radius: 30px;
+    text-align: center;
+    display: block;
+}
+
+#container form label {
+    text-align: left;
+    display: block;
+    margin-left: 5px;
+    color: rgb(131, 72, 0);
+}
+
+#container form input{
+    padding: 10px;
+    width: 95%;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border: 0;
+    border-radius: 10px;
+    color: rgb(131, 72, 0);
+    font-family: Poppins, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    transition: 0.5s transform;
+}
+
+#container form input::placeholder{
+    color: rgb(190, 167, 139);
+}
+
+#container form input:focus, button:focus{
+    outline: 2px solid rgb(131, 72, 0);
+    transform: scale(1.02, 1.02);
+}
+
+a:focus{
+    outline: 2px solid rgb(131, 72, 0);
+    border-radius: 20px;
+}
+
+#container form h2{
+    margin-top: 0;
+    color: rgb(131, 72, 0);
+}
+
+#container form button, a button{
+    width: 100%;
+    padding: 10px;
+    border: 0;
+    border-radius: 10px;
+    background-color: white;
+    font-size: 15px;
+    font-family: Poppins, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgb(131, 72, 0);
+    transition: 0.5s transform;
+    margin-top: 10px;
+}
+
+#container form button:hover, a button:hover{
+    outline: 2px solid rgb(131, 72, 0);
+    transform: scale(1.02, 1.02);
+    cursor: pointer;
+}
+
+#container a button{
+    background-color: bisque;
+    font-size: 20px;
+    width: 100%;
+    margin-top: 20px;
+}

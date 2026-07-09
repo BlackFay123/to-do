@@ -1,0 +1,32 @@
+{% extends "tasks/layout.html" %}
+
+{% block body %}
+
+<div id="container">
+    <h1>To Do App <i class="fa-solid fa-clipboard-list"></i></h1>
+
+    <h2><i class="fa-solid fa-list"></i> Tasks:</h2>
+
+        <ul>
+
+    {% if tasks %}
+            {% for task in tasks %}
+                <li>
+                    <h2 class="priority {{ task.priority|lower }}-priority">{{ task.priority }} Priority</h2>
+                    <h2>{{ task.name }}</h2>
+                    <p>{{ task.description }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+
+    {% else %}
+            <li>No tasks.</li>
+        </ul>
+    {% endif %}
+
+    <a href="{% url 'tasks:add' %}"><button><i class="fa-solid fa-plus"></i>Add a Task</button></a>
+    <a href="{% url 'tasks:remove' %}"><button><i class="fa-solid fa-circle-xmark"></i>Remove a Task</button></a>
+
+</div>
+
+{% endblock %}
